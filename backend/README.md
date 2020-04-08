@@ -68,24 +68,45 @@ One note before you delve into your tasks: for each endpoint you are expected to
 
 REVIEW_COMMENT
 ```
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
-
-Endpoints
 GET '/categories'
-GET ...
-POST ...
-DELETE ...
-
-GET '/categories'
-- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
-- Request Arguments: None
-- Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
 {'1' : "Science",
-'2' : "Art",
-'3' : "Geography",
-'4' : "History",
-'5' : "Entertainment",
-'6' : "Sports"}
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}
+
+GET '/questions'
+-	Fetches a list of questions. 
+-	Request Arguments: page (optional). The page is used to specify which page of the question list user request. There are 10 questions per page. The default value is 1. 
+-	Returns: An object with key “questions” which contains a list of questions, “total_questions” which is a number of questions in the library, “categories” which is the number of categories, and “current_category” which is current unused. 
+
+DELETE ‘/questions/<question_id>
+-	Delete question with id=question_id
+-	Request Arguments: None
+-	Returns:  None
+
+POST ‘/questions’
+-	Add new question to the library
+-	Request Arguments: an json object that includes required information of a question --“question”, “answer”, “difficulty”, and “category”.
+-	Returns: None
+
+POST ‘/searchQuestions’
+-	Search questions based on “search term”. Will return any questions that contains “search term” as a substring.
+-	Request Arguments: searchTerm
+-	Returns:  a json object that includes questions (a list of questions that match the searchTerm, total_questions (total number of matched questions), and current_category (currently not used).
+
+POST ‘/categories/<category_id>/questions
+-	Fetch a list of questions under the category --- category_id. 
+-	Request Arguments: None
+-	Returns: a json object includes questions (a list of questions under the specified category), total_questions (total number of questions in the specified category), and current_category (currently unused).
+POST ‘/quizzes’
+-	Return a random question from the specified category. If the category is 0, will return a random question across all categories.
+-	Request: quiz_category, the quiz category of the current game.
+-	Returns: a json object that has one field, questions, which is the random question from the specified category.
 
 ```
 
