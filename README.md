@@ -24,4 +24,4 @@ The `./frontend` directory contains a complete React frontend to consume the dat
 
 ### Reference
 
-Project framework https://github.com/udacity/FSND/tree/master/projects/02_trivia_api/starter
+Base project framework https://github.com/udacity/FSND/tree/master/projects/02_trivia_api/starter
